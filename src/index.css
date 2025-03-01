@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "styles.css";
+@config "../tailwind.config.js";
+
+/* @theme {
+  --font-display: "Roboto Condensed", serif;
+  --font-weight-display: 700;
+  --font-color: #babfc5;
+
+  /* --color-primary: #ff463b; */
+/* --color-primary: #ec3528; */
+/* --color-primary: linear-gradient(90deg, #ff0000, #ff7300);
+  --color-secondary: #ec1313;
+  --color-tertiary: #7e57c2;
+  --color-success: #b3e5fc;
+}
+
+.logo {
+  font-family: "Georama", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@layer utilities {
+  .primary-bg {
+    @apply bg-gradient-to-r dark:via-none;
+  }
+
+  .primary-text {
+    @apply bg-gradient-to-r dark:via-none  bg-clip-text text-transparent;
+  }
+} */
+
+@theme {
+  --font-display: "Roboto Condensed", serif;
+  --font-weight-display: 700;
+  --font-color: #babfc5;
+}
+
+@layer components {
+  .app-x-padding {
+    @apply px-4 sm:px-8 md:px-12;
+  }
+  .app-max-width {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+@layer utilities {
+  @variants responsive {
+    .bottom-10-per {
+      bottom: 10%;
+    }
+    .left-10-per {
+      left: 10%;
+    }
+    .right-10-per {
+      right: 10%;
+    }
+  }
+}
+
+.toggle-checkbox:checked {
+  @apply: right-0 border-gray500;
+  right: 0;
+  border-color: #282828;
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-gray500;
+  background-color: #282828;
+}
