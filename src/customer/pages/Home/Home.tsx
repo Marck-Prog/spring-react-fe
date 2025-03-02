@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <>
       <div className="space-y-5 lg:space-y-10 relative pb-20">
-        <ElectricCategory />
+        {/* <ElectricCategory /> */}
         <CategoryGrid />
         <div className="pt-20">
           <h1 className="text-lg lg:text-4xl font-black italic pb-5 lg:pb-10 text-center font-display">

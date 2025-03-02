@@ -1,7 +1,5 @@
 import { FavoriteBorder, Store } from "@mui/icons-material";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import {
   Avatar,
   Box,
@@ -18,6 +16,9 @@ import CategorySheet from "./CategorySheet";
 import AppHeader from "./AppHeader";
 import TopNav from "./TopNav";
 import Menu from "../../pages/Menu/Menu";
+import SearchForm from "../../pages/SearchForm/SearchForm";
+import WhistlistIcon from "../../../assets/icons/WhistlistIcon";
+import CartItem from "../../pages/CartItem/CartItem";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -53,7 +54,7 @@ const Navbar = () => {
       <AppHeader />
 
       <a
-        href="#main-content"
+        href="#"
         className="whitespace-nowrap absolute z-50 left-4 opacity-90 rounded-md bg-white px-4 py-3 transform -translate-y-40 focus:translate-y-0 transition-all duration-300"
       >
         Skip to main content
@@ -63,18 +64,20 @@ const Navbar = () => {
 
       <div
         className={`${
-          scrolled ? "bg-white sticky top-0 shadow-md z-50" : "bg-transparent"
+          scrolled
+            ? "bg-white sticky top-0 shadow-md mb-10 z-50"
+            : "bg-transparent"
         } w-full z-50 h-20 relative`}
       >
         <div className="app-max-width w-full">
-          <div className="flex justify-between align-baseline app-x-padding py-6">
+          <div className="flex justify-between align-baseline app-x-padding px-6">
             {/* Hamburger Menu and Mobile Nav */}
             <div className="flex-1 lg:flex-0 lg:hidden">
               <Menu />
             </div>
 
             {/* Left Nav */}
-            <ul className="flex-0 lg:flex-1 flex ml-8 my-6">
+            <ul className="flex-0 lg:flex-1 flex ml-8 my-6 cursor-pointer">
               {mainCategory.map((item) => (
                 <li
                   key={item.categoryId}
@@ -92,32 +95,25 @@ const Navbar = () => {
               ))}
             </ul>
 
-            <div className="relative z-20 flex w-full justify-between md:px-0 lg:w-fit gap-9">
-              <div className="flex items-center space-x-2">
-                <div aria-hidden="true" className="flex space-x-1">
-                  <div className="size-4 rounded-full bg-gray-900 dark:bg-secondary"></div>
-                  <div className="h-6 w-2 bg-secondary">
-                    {" "}
-                    {!isLarge && (
-                      <IconButton>
-                        <MenuIcon />
-                      </IconButton>
-                    )}
-                  </div>
-                </div>
+            {/* Juan Logo */}
+            <div className="flex-auto flex justify-center items-center cursor-pointer">
+              <div className="w-32 h-auto">
+                <div aria-hidden="true" className="flex space-x-1"></div>
 
                 <h1
                   onClick={() => navigate("/")}
-                  className="logo text-secondary cursor-pointer text-lg font-bold md:text-2xl"
+                  className="logo justify-center w-full"
                 >
                   Juan Graphico
                 </h1>
               </div>
             </div>
-            <div className="flex gap-1 lg:gap-6 items-center">
-              <IconButton>
-                <SearchIcon />
-              </IconButton>
+
+            {/* Right Nav */}
+            <div className="flex-1 flex gap-1 lg:gap-10 items-center">
+              <div>
+                <SearchForm />
+              </div>
               {auth.user ? (
                 <Button
                   onClick={() => navigate("/account/orders")}
@@ -140,20 +136,23 @@ const Navbar = () => {
                   Login
                 </Button>
               )}
-              <IconButton onClick={() => navigate("/wishlist")}>
-                <FavoriteBorder
-                  sx={{ fontSize: 29 }}
-                  className="!text-orange-500"
-                />
-              </IconButton>
-              <IconButton onClick={() => navigate("/cart")}>
+              <button
+                type="button"
+                className="relative cursor-pointer"
+                aria-label="Wishlist"
+                onClick={() => navigate("/wishlist")}
+              >
+                <WhistlistIcon />
+              </button>
+              {/* <IconButton onClick={() => navigate("/cart")}>
                 <LocalMallIcon
                   className="!text-orange-500"
                   sx={{ fontSize: 29 }}
                 />
-              </IconButton>
+              </IconButton> */}
+              <CartItem />
 
-              {isLarge && (
+              {/* {isLarge && (
                 <Button
                   onClick={() => navigate("/become-seller")}
                   startIcon={<Store />}
@@ -162,7 +161,7 @@ const Navbar = () => {
                 >
                   Become Seller
                 </Button>
-              )}
+              )} */}
             </div>
           </div>
           {showCategorySheet && (

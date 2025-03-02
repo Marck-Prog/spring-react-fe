@@ -80,7 +80,7 @@ const TopNav = () => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-3 outline-none z-10"
+                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-3 outline-none z-99"
               >
                 <MenuItem>
                   <a
@@ -105,7 +105,7 @@ const TopNav = () => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-3 outline-none z-10"
+                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-3 outline-none z-99"
               >
                 <MenuItem>
                   <a

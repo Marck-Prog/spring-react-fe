@@ -80,7 +80,7 @@ export const mainCategory = [
     ],
   },
   {
-    name: "Home & Furniture",
+    name: "Accessories",
     categoryId: "home_furniture",
     level: 1,
     levelTwoCategory: [
@@ -111,7 +111,7 @@ export const mainCategory = [
     ],
   },
   {
-    name: "Electronics",
+    name: "Threads",
     categoryId: "electronics",
     level: 1,
     levelTwoCategory: [

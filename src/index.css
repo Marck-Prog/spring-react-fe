@@ -2,6 +2,12 @@
 @import "styles.css";
 @config "../tailwind.config.js";
 
+.logo {
+  font-family: "Fugaz One", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
 /* @theme {
   --font-display: "Roboto Condensed", serif;
   --font-weight-display: 700;
