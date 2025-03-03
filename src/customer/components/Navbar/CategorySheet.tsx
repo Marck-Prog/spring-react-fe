@@ -43,9 +43,14 @@ const CategorySheet = ({ selectedCategory, setShowSheet }: any) => {
             //   index % 2 === 0 ? "bg-slate-50" : "bg-white"
             // }`}
           >
-            <p className="font-display text-2xl italic my-3 font-bold cursor-pointer bg-gradient-to-r from-slate-800 to-slate-800 bg-no-repeat bg-[length:0_3px] hover:bg-[length:80px_3px] bg-left-bottom transition-all duration-500">
-              {item.name}
-            </p>
+            <div
+              className={`group transition-all flex justify-center w-24 relative`}
+            >
+              <p className="common-title left-0 my-3 text-[16px] cursor-pointer inline-block no-underline text-gray500 p-2 duration-500 group-hover:tracking-widest">
+                {item.name}
+              </p>
+              <div className="border-b-2 border-transparent absolute bottom-3 w-1.5 duration-500 group-hover:w-3/4 group-hover:border-gray500 group-hover:duration-500"></div>
+            </div>
             <ul className="space-y-3 mt-6 ">
               {childCategory(
                 categoryThree[selectedCategory],
@@ -54,7 +59,7 @@ const CategorySheet = ({ selectedCategory, setShowSheet }: any) => {
                 <div key={item.name}>
                   <li
                     onClick={() => navigate("/products/" + item.categoryId)}
-                    className="text-[20px] text-gray-500 hover:primary-text cursor-pointer"
+                    className="text-[16px] font-display text-gray400 hover:text-gray500 duration-500 cursor-pointer"
                   >
                     {item.name}
                   </li>
