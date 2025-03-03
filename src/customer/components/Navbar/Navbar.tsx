@@ -86,9 +86,9 @@ const Navbar = () => {
                     setSelectedCategory(item.categoryId);
                   }}
                   onMouseLeave={() => {
-                    setShowCategorySheet(false);
+                    // setShowCategorySheet(false);
                   }}
-                  className="mr-12 hidden lg:block whitespace-nowrap hover:text-gray-400"
+                  className="font-display mr-12 hidden lg:block whitespace-nowrap hover:text-gray-400"
                 >
                   {item.name}
                 </li>
@@ -97,45 +97,60 @@ const Navbar = () => {
 
             {/* Juan Logo */}
             <div className="flex-auto flex justify-center items-center cursor-pointer">
-              <div className="w-32 h-auto">
-                <div aria-hidden="true" className="flex space-x-1"></div>
+              <div className="w-86 h-auto">
+                {/* <div aria-hidden="true" className="flex space-x-1"></div> */}
 
-                <h1
-                  onClick={() => navigate("/")}
-                  className="logo justify-center w-full"
-                >
-                  Juan Graphico
-                </h1>
+                <div onClick={() => navigate("/")}>
+                  <img
+                    className="justify-center"
+                    src="/logo.svg"
+                    alt="Picture of the author"
+                    width={250}
+                    height={80}
+                  />
+                </div>
               </div>
             </div>
 
             {/* Right Nav */}
-            <div className="flex-1 flex gap-1 lg:gap-10 items-center">
-              <div>
-                <SearchForm />
-              </div>
+            <div className="flex-auto flex lg:gap-10 items-center">
               {auth.user ? (
                 <Button
                   onClick={() => navigate("/account/orders")}
+                  sx={{ color: "black" }}
                   className="flex items-center gap-2"
                 >
                   <Avatar
-                    sx={{ width: 29, height: 29 }}
-                    src="https://imgs.search.brave.com/0T82UtGZ1MJKNUs52cZ1xwH-vaXD2OELuZMouLFaxjI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZS1jZG4uaHlwYi5z/dC9odHRwczovL2h5/cGViZWFzdC5jb20v/aW1hZ2UvMjAyNC8x/Mi8yMy9rYWlqdS1u/by04LXNlYXNvbi0y/LWFuaW1lLTIwMjUt/c3VtbWVyLXByZW1p/ZXJlLWluZm8tMDAw/LmpwZz9maXQ9bWF4/JmNicj0xJnE9OTAm/dz03NTAmaD01MDA"
+                    sx={{ width: 20, height: 20 }}
+                    src="https://cdn-icons-png.flaticon.com/128/64/64572.png"
                   />
                   <h1 className="font-bold hidden lg:block !primary-text first-letter:uppercase lowercase ">
-                    Hi, {auth.user?.fullName}
+                    <div className="flex capitalize">
+                      <span className="uppercase">H</span>
+                      <span className="lowercase mr-1">i,</span>{" "}
+                      <span>{auth.user?.fullName}</span>
+                    </div>
                   </h1>
                 </Button>
               ) : (
                 <Button
                   onClick={() => navigate("/login")}
                   variant="contained"
-                  className="!primary-bg"
+                  sx={{
+                    background:
+                      "linear-gradient(to bottom right, #22c55e, #2563eb)",
+                    "&:hover": {
+                      background:
+                        "linear-gradient(to bottom left, #22c55e, #2563eb)",
+                    },
+                  }}
                 >
                   Login
                 </Button>
               )}
+              <div>
+                <SearchForm />
+              </div>
               <button
                 type="button"
                 className="relative cursor-pointer"
