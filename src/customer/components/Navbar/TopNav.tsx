@@ -39,7 +39,7 @@ const TopNav = () => {
   };
 
   return (
-    <div className="bg-gray500 text-gray100 hidden lg:block text-center px-10 py-1">
+    <div className="bg-gray500 text-gray100 hidden lg:block text-center px-10">
       <div className="flex justify-between app-max-width">
         {/* Left Section - Social Media & Links */}
         <ul className="flex ml-8">
@@ -68,7 +68,7 @@ const TopNav = () => {
         </ul>
 
         {/* Language & Currency Dropdowns (for better UI) */}
-        <ul className="flex text-xs my-2 ml-4 hover:text-gray300">
+        <ul className="flex text-xs my-2 ml-4 gap-4 hover:text-gray300">
           <li>
             {/* Language Dropdown */}
             <Menu>
@@ -80,7 +80,7 @@ const TopNav = () => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-3 outline-none z-99"
+                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-2 outline-none z-99"
               >
                 <MenuItem>
                   <a
@@ -105,7 +105,7 @@ const TopNav = () => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-3 outline-none z-99"
+                className="flex flex-col w-20 right-0 absolute p-1 border border-gray200 bg-white mt-2 outline-none z-99"
               >
                 <MenuItem>
                   <a
